@@ -50,8 +50,8 @@ export default function Login() {
           // We can optionally refresh the router to update the session.
           // But usually NextAuth redirect handles it.
           // If we are here, it means no error was returned, so we assume success.
-          router.push("/dashboard"); // Explicit redirect fallback
-          router.refresh();
+          // Force hard refresh to clear client caches and re-init SessionProvider
+          window.location.href = "/dashboard";
         }
       } catch (e) {
         // Redirection errors are thrown by Next.js, so we ignore them

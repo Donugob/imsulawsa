@@ -6,6 +6,7 @@ import { z } from "zod";
 import connectDB from "@/lib/db";
 import User from "@/models/User";
 import bcrypt from "bcryptjs";
+import { revalidatePath } from "next/cache";
 
 const RegisterSchema = z.object({
     fullName: z.string().min(2, "Name must be at least 2 characters"),
@@ -27,6 +28,7 @@ export async function authenticate(prevState: string | undefined, formData: Form
             return "Invalid credentials.";
         }
 
+        revalidatePath("/dashboard");
         return null; // Null means success in this pattern (error is string | undefined)?? 
         // Wait, the client expects "Invalid credentials" string on error.
         // If success, it used to throw redirect. Now it returns.
