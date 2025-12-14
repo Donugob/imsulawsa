@@ -48,7 +48,8 @@ function Hero() {
               Digital Secretariat
             </span>
             <span className="text-gray-500 text-[10px] lg:text-xs ml-3 font-medium uppercase tracking-wider">
-              Law Students' Association
+              Law Students' Association of Nigeria
+
             </span>
           </motion.div>
 

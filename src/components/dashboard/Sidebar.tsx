@@ -11,8 +11,10 @@ import {
   LogOut,
   FileText,
   ShieldCheck,
-  UploadCloud
+  UploadCloud,
+  Home
 } from "lucide-react";
+import { Holtwood_One_SC } from "next/font/google";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -20,6 +22,7 @@ const Sidebar = () => {
   const isAdmin = session?.user?.role === 'admin';
 
   const links = [
+    { name: "Home", href: "/", icon: Home },
     { name: "Overview", href: "/dashboard", icon: LayoutDashboard },
     { name: "E-Library", href: "/dashboard/library", icon: BookOpen },
     { name: "Dues & Payments", href: "/dashboard/payments", icon: CreditCard },
